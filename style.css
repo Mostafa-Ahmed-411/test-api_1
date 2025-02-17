@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+}
+body{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    color: white;
+}
+#log-in{
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    /* display: none; */
+}
+#log-in form{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    background-color: #070739;
+    padding: 2%;
+    border-radius: 15px;
+}
+#log-in form .data{
+        display: grid;
+        padding: 1%;
+}
+#log-in #user-name , #password {
+    background-color: antiquewhite;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 10px 0 ;
+    border-radius: 10px;
+    padding: 1% 2%;
+    background-color: black;
+    color: white;
+}
+#log-in #submit{
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+#log-in #submit:hover{
+    background-color: rgb(24, 23, 23);
+    cursor: pointer;
+    letter-spacing: 2px ;
+}
+
+/* -------------------------------------------------------------------------- */
+#user-profile{
+    padding: 2%;
+    width: 100%;
+}
+#user-profile header{
+    background-color: rgb(27, 26, 24);
+    text-align: center;
+    margin-bottom: 5%;
+    padding: 1%;
+    border-radius: 10px;
+    }
+#user-profile header #name{
+    display: block;
+    }
+#user-profile .content{
+    text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #070739;
+    row-gap: 20px;
+    width: 40%;
+    margin: auto;
+    padding: 2% 4%;
+    border-radius: 10px;
+}
+#user-profile .content p{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: baseline;
+    font-size: 13px;
+
+}
+#user-profile .content span{
+    border: 1px blue solid;
+    border-radius: 10px ;
+    padding: 1%;
+    padding-left: 2%;
+    background-color: rgb(42, 38, 38);
+    width: 70%;
+}
+.hidden{
+    display: none !important;
+}
+
+
+@media screen and (max-width : 768px ) {
+    #user-profile .content p{
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    #user-profile .content span{
+        width: 100%;
+    }
+}
