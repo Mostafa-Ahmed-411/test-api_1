@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- ----------------------------------------------------------------------- -->
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 100%;
+            height: 100vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(16, 16, 63);
+            
+        }
+        form{
+            width: 25%;
+            margin: auto;
+            text-align: center;
+        }
+        form .data{
+                display: grid;
+                padding: 1%;
+        }
+        #title , #price {
+            background-color: antiquewhite;
+            width: 100%;
+            border: none;
+            margin: 10px 0 ;
+            border-radius: 10px;
+            padding: 1% 2%;
+        }
+        #submit{
+            padding: 5px 20px;
+            border-radius: 10px;
+        }
+</style>
+<!-- ----------------------------------------------------------------------- -->
+</head>
+<!-- ----------------------------------------------------------------------- -->
+ <!-- ----------------------------------------------------------------------- -->
+<body>
+
+    <div class="content">
+        <form  id="form" action="">
+            <div class="data">
+                <input type="text" id="title" placeholder="title">
+                <input type="number" id="price" placeholder="price">
+            </div>
+            <button id="submit">send</button>
+        </form>
+    </div>
+
+
+<!-- ----------------------------------------------------------------------- -->
+<script>
+            let title = document.getElementById("title")
+            let price = document.getElementById("price")
+            let send = document.getElementById("submit")
+            let allData = []
+            let data = {}
+            
+
+            /* -------------------------------------------------------------------------- */
+            let url_get_data = "https://assiut-robotics-zeta.vercel.app/members/get/web"
+            async function fetchData( url_get_data){
+            try {
+                let data  = await fetch( url_get_data)
+                let myData = await data.json()
+                console.log(myData.date);
+            } catch (error) {
+                console.log(error);
+            }
+            }
+            fetchData( url_get_data)
+            /* -------------------------------------------------------------------------- */
+            let url_post_data = "https://server-wheat-five.vercel.app/courses/addCourse"
+
+            send.addEventListener("click" , function(e){
+            e.preventDefault()
+            
+            data =  { 
+                title : `${title.value}` ,
+                price : `${price.value}`
+                }
+                    allData.push(data)
+            fetch(url_post_data , {
+                    method : "POST",
+                    headers: {
+                    "Content-type": "application/json"
+                    },
+                    body : JSON.stringify(data),
+            })
+            .then((res)=>res.json())
+            .then((res)=>console.log(res))
+            })
+
+</script>
+
+
+</body>
+</html>
+
